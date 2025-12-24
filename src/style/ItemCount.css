@@ -1,0 +1,34 @@
+.numero {
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+}
+.alCarro { 
+    width: 150px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 0%;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+} 
+.padre{
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+.navfix{
+    padding-top: 30px;
+}
+.inCart{
+    text-align: center;
+    color: rgb(141, 141, 141);
+    margin-top: 10px;
+}

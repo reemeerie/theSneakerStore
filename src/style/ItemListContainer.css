@@ -1,0 +1,13 @@
+.customContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+.spinner{
+    margin-top: 80px;
+    height: 50px;
+    width: 50px;
+    /* padding-top: 50px; */
+}

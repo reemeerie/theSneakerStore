@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    margin-bottom: 20px;
+}
+input {
+    z-index: 0;
+}
+.boton{
+    margin-bottom: 30px;
+}
+.error {
+    color: rgb(255, 0, 0);
+    margin-left: 4px;
+}
+.last {
+    margin-bottom: 25px;
+}
+@media (max-width: 1000px) {
+    .form {
+        width: 100%;
+    }
+}

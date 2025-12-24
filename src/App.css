@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100;1,200;1,300;1,400&display=swap');
+
+@font-face {
+  font-family: PoppinsLightItalic;
+  src: url(/img/Poppins-LightItalic.ttf) format('truetype');
+}
+@font-face {
+  font-family: PoppinsLight;
+  src: url(/img/Poppins-Light.ttf) format('truetype');
+}
+@font-face {
+  font-family: PoppinsRegular;
+  src: url(/img/Poppins-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: PoppinsMediumItalic;
+  src: url(/img/Poppins-MediumItalic.ttf) format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: PoppinsLightItalic, sans-serif;
+}
