@@ -1,6 +1,6 @@
 ***Proyecto E-commerce de Zapatillas***
 
-Este proyecto corresponde al primer trabajo desarrollado con React, realizado como proyecto final del curso de React en Coderhouse.
+Este proyecto corresponde a mi primer trabajo desarrollado con React, realizado como proyecto final del curso de React en Coderhouse.
 Consiste en un e-commerce de zapatillas, enfocado en la aplicación práctica de los conceptos fundamentales del ecosistema React.
 
 **Tecnologías utilizadas**
@@ -30,6 +30,8 @@ _⚠️ Nota: Si la sección de productos no carga o presenta errores, es posibl
 Este proyecto representó un primer acercamiento práctico a:
 
 - El uso de hooks en React
+- Conditional rendering
+- Reactividad a cambios
 - La gestión de estado global mediante Context API
 - La integración de librerías de estilos
 - El ruteo de la aplicación con react-router-dom
