@@ -67,6 +67,7 @@
 .link {
   text-decoration: none;
 }
+
 @media (max-width: 1550px) {
   .img img {
     max-width: 30%;

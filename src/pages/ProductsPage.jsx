@@ -1,11 +1,9 @@
-import React from "react";
-import ItemList from "./ItemList";
-import "../style/ItemListContainer.css";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { ItemList } from "../components/ItemList";
+import "../style/ProductsPage.css";
 
-const ItemListContainer = () => {
+export const ProductsPage = () => {
   const [zapas, setZapas] = useState([]);
 
   useEffect(() => {
@@ -35,5 +33,3 @@ const ItemListContainer = () => {
     </>
   );
 };
-
-export default ItemListContainer;

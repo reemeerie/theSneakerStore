@@ -1,20 +1,20 @@
-import "../style/Item.css";
 import { Link } from "react-router-dom";
+import "../style/Item.css";
 
-const Item = ({ id, img, nombre, precio }) => {
+export const Item = ({ id, img, nombre, precio }) => {
   return (
     <div className="col-xxl-2 customCont col-lg-3 col-md-5 col-sm-5 col-10">
       <div className="row">
         <div>
           <div className="card-sl">
             <div className="card-image">
-              <Link to={`/item/${id}`}>
+              <Link to={`/product/${id}`}>
                 <img src={img} alt="img" />
               </Link>
             </div>
             <div className="card-heading">{nombre}</div>
             <div className="card-text">{precio}</div>
-            <Link to={`/item/${id}`} className="card-button">
+            <Link to={`/product/${id}`} className="card-button">
               Ver detalle de producto
             </Link>
           </div>
@@ -23,5 +23,3 @@ const Item = ({ id, img, nombre, precio }) => {
     </div>
   );
 };
-
-export default Item;

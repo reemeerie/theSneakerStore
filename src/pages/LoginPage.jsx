@@ -1,31 +1,30 @@
-import React, { useState, useEffect, useContext } from "react";
-import "../style/Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { CartContext } from "../context/CartContext";
 import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
+import { CartContext } from "../context/CartContext";
+import "../style/Login.css";
 
+/* Mover a .env */
 const baseUrl = "https://snk-api.vercel.app/api/v1/login";
 
-const Login = () => {
-  const [user, setUser] = useState("");
-  const { itemsCarrito } = useContext(CartContext);
+export const LoginPage = () => {
+  const { user, setUser } = useContext(CartContext)
   const navigate = useNavigate();
 
   useEffect(() => {
     const alreadyUser = window.localStorage.getItem("loggedUser");
-    if (alreadyUser && alreadyUser.length > 10) {
+    if (alreadyUser) {
+      /* Si ya hay un usuario logeado, lo dirijo a su user page */
       const usuario = JSON.parse(alreadyUser);
       navigate(`/user/${usuario.id}`);
-    } else {
-      window.localStorage.setItem("loggedUser", JSON.stringify(user));
-      window.localStorage.setItem("cart", JSON.stringify(itemsCarrito));
+    } else if (user) {
+      /* Si se acaba de logear, lo guardo en localStorage y dirijo a products */
+      localStorage.setItem("loggedUser", JSON.stringify(user));
+      navigate(`/products`);
     }
-    if (user) {
-      window.location.href = "/";
-    }
-  }, [user, navigate, itemsCarrito]);
+  }, [user]);
 
   return (
     <>
@@ -125,5 +124,3 @@ const Login = () => {
     </>
   );
 };
-
-export default Login;

@@ -1,13 +1,12 @@
-import React from "react";
-import Item from "./Item";
+import { Item } from "./Item";
 
-const ItemList = (props) => {
+export const ItemList = (props) => {
   const zapas = props.zapas;
   return (
     <div className="customContainer">
-      {zapas.map((zapa, index) => (
+      {zapas.map((zapa) => (
         <Item
-          key={index}
+          key={zapa.id}
           img={zapa.img}
           nombre={zapa.nombre}
           precio={zapa.precio}
@@ -18,5 +17,3 @@ const ItemList = (props) => {
     </div>
   );
 };
-
-export default ItemList;

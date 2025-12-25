@@ -1,20 +1,21 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
-import "../style/ItemListContainer.css";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import { ItemDetail } from "../components/ItemDetail";
+import "../style/ProductsPage.css";
 
-const ItemDetailContainer = () => {
+export const ProductDetailPage = () => {
   const { id } = useParams();
   const [zapatilla, setZapatilla] = useState({});
 
   useEffect(() => {
     const getAllZapasAndFilter = async () => {
+      /* service? */
+      /* me traigo todas las zapatillas y despues filtro por la que necesito? jajajjaja */
       const response = await axios.get(
         "https://snk-api.vercel.app/api/v1/zapatillas"
       );
-      console.log(response)
+      
       const zapatillas = response.data.data;
       const zapa = zapatillas.find((zapa) => zapa.id === Number(id));
       setZapatilla(zapa);
@@ -37,7 +38,6 @@ const ItemDetailContainer = () => {
             nombre={zapatilla.nombre}
             precio={zapatilla.precio}
             img={zapatilla.img}
-            inicial={1}
             stock={zapatilla.stock}
             id={zapatilla.id}
             precioNumero={zapatilla.precioNumero}
@@ -48,5 +48,3 @@ const ItemDetailContainer = () => {
     </>
   );
 };
-
-export default ItemDetailContainer;

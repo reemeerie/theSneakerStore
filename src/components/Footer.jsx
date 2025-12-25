@@ -1,9 +1,9 @@
-import "../style/Footer.css";
 import * as FaIcons from "react-icons/fa";
 import * as FiIcons from "react-icons/fi";
 import { IconButton } from "@mui/material";
+import "../style/Footer.css";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <div className="footerContainer">
       <footer>
@@ -68,5 +68,3 @@ const Footer = () => {
     </div>
   );
 };
-
-export default Footer;

@@ -9,14 +9,12 @@
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-
 .menu-bars {
     margin-left: 2rem;
     font-size: 23px;
     background: none ;
     cursor: pointer;
 }
-
 .nav-menu {
     background-color: #ffc107;
     width: 250px;
@@ -30,7 +28,6 @@
     z-index: 1;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
 .nav-menu.active{
     left: 0;
     transition: 280ms;   
@@ -59,11 +56,9 @@
 .nav-text a:hover {
     background-color: #a98807;
 }
-
 .nav-menu-items{
     width: 100%;   
 }
-
 .navbar-toggle {
     background-color: #ffc107;
     width: 100%;
@@ -73,19 +68,16 @@
     align-items: center;
     
 }
-
 .sideSpan {
     margin-left: 16px;
     font-family: PoppinsRegular; 
 }
-
 .contenedorGrande {
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .contenedorChico {
     text-decoration: none;
     color: black;
@@ -118,7 +110,6 @@
         display: none;
     }
 }
-
 @media (max-width: 440px) {
     .brand {
         font-size: 25px;

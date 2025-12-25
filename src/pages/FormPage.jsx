@@ -1,29 +1,24 @@
-import React from "react";
-import "../style/Form.css";
-import { useState, useEffect } from "react";
-import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
+import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { Formik } from "formik";
+import { CartContext } from "../context/CartContext";
+import "../style/Form.css";
 
-const Form = () => {
+export const FormPage = () => {
   const navigate = useNavigate();
+  
+  /* .env */
   const baseUrl = "https://snk-api.vercel.app/api/v1/orders";
-  const [user, setUser] = useState("");
-  const { total, itemsCarrito, clearCarro } = useContext(CartContext);
+  const { user, total, itemsCarrito, clearCarro } = useContext(CartContext);
 
   useEffect(() => {
-    const alreadyUser = window.localStorage.getItem("loggedUser");
-    if (alreadyUser && alreadyUser.length > 10) {
-      const usuario = JSON.parse(alreadyUser);
-      setUser(usuario);
-    } else {
-      navigate("/login");
+    if(!user || itemsCarrito.length == 0){
+      navigate("/")
     }
-  }, [navigate]);
-
+  }, [])
+  
   return (
     <>
       <div className="loginContainer">
@@ -219,5 +214,3 @@ const Form = () => {
     </>
   );
 };
-
-export default Form;

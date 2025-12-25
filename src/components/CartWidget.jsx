@@ -1,15 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
-import { Button } from "@mui/material";
+import { useContext } from "react";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import { CartContext } from "../context/CartContext";
 
-const CartWidget = () => {
-  const { itemsCarrito, fromLocalStorage } = useContext(CartContext);
-
-  useEffect(() => {
-    fromLocalStorage();
-  }, [fromLocalStorage]);
+export const CartWidget = () => {
+  const { itemsCarrito } = useContext(CartContext);
 
   return (
     <Link to="/cart" className="contenedorChico">
@@ -26,5 +22,3 @@ const CartWidget = () => {
     </Link>
   );
 };
-
-export default CartWidget;

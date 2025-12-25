@@ -1,11 +1,12 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 
-const Signup = () => {
+export const SignupPage = () => {
   const navigate = useNavigate();
+
+  /* Mover a .env */
   const baseUrl = "https://snk-api.vercel.app/api/v1/users";
 
   return (
@@ -50,6 +51,7 @@ const Signup = () => {
             return errors;
           }}
           onSubmit={async (values, { resetForm }) => {
+            /* el id lo genera el front? jajaja */
             const id = Math.floor(Math.random() * 100000000);
             try {
               const dataSignup = {
@@ -169,5 +171,3 @@ const Signup = () => {
     </div>
   );
 };
-
-export default Signup;

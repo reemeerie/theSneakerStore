@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import "../style/NavBar.css";
 import { IconContext } from "react-icons";
-import CartWidget from "./CartWidget";
-import { Button } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import { CartWidget } from "./CartWidget";
+import { CartContext } from "../context/CartContext";
+import "../style/NavBar.css";
 
-const NavBar = () => {
-  const [usuario, setUsuario] = useState("");
+export const NavBar = () => {
+  const { user, setUser } = useContext(CartContext);
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => {
@@ -17,13 +18,17 @@ const NavBar = () => {
   };
 
   useEffect(() => {
+    /* Cada vez que renderizo el navbar me fijo si tengo un usuario logeado
+    si no, muestro "Log In"
+    Esta responsabilidad no deberia tenerla el navbar, si no un layout */
     const userJSON = window.localStorage.getItem("loggedUser");
     if (userJSON) {
       const usuario = JSON.parse(userJSON);
-      setUsuario(usuario);
+      setUser(usuario);
     }
   }, []);
 
+  /* Esta data debería ser estática y estar en un archivo JSON */
   const sidebardata = [
     {
       title: "Home",
@@ -44,7 +49,7 @@ const NavBar = () => {
       cName: "nav-text",
     },
     {
-      title: usuario ? usuario.name : "Log in",
+      title: user ? user.name : "Log in",
       path: "/login",
       icon: <FaIcons.FaUser />,
       cName: "nav-text",
@@ -52,15 +57,15 @@ const NavBar = () => {
   ];
 
   return (
+    /* El provider de iconos debería ir en App envolviendo a toda la aplicación, acá solo envuelve el navbar, no tiene sentido */
     <>
       <IconContext.Provider value={{ color: "black" }}>
-        <div className="navbar">
+        <section className="navbar">
           <div className="contenedorGrande">
             <div className="menu-bars">
               <FaIcons.FaBars onClick={showSidebar} className="barritas" />
             </div>
             <Link to="/" className="brand">
-              {/* <img src="/tss2.png" alt="assa"/> */}
               theSneakerStore
             </Link>
           </div>
@@ -73,11 +78,11 @@ const NavBar = () => {
                 sx={{ fontSize: 17 }}
                 startIcon={<PersonIcon />}
               >
-                {usuario ? usuario.name : "Log in"}
+                {user ? user.name : "Log in"}
               </Button>
             </Link>
           </div>
-        </div>
+        </section>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
@@ -101,5 +106,3 @@ const NavBar = () => {
     </>
   );
 };
-
-export default NavBar;

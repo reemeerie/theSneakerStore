@@ -18,6 +18,7 @@ input {
 .last {
     margin-bottom: 25px;
 }
+
 @media (max-width: 1000px) {
     .form {
         width: 100%;

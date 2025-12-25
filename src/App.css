@@ -1,3 +1,7 @@
+/* Como mejora general de CSS se debería cambiar los px por medidas relativas,
+revisar las propiedades sobrantes de las clases, re-construir y simplificar
+cada clase, y más */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100;1,200;1,300;1,400&display=swap');
 
 @font-face {

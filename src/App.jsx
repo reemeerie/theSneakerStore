@@ -1,32 +1,32 @@
-import "./App.css";
-import ItemListContainer from "./components/ItemListContainer";
-import NavBar from "./components/NavBar";
-import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
-import Cart from "./pages/Cart";
-import Form from "./components/Form";
-import Login from "./pages/Login";
-import Footer from "./components/Footer";
-import Signup from "./pages/Signup";
-import User from "./pages/User";
-import Home from "./pages/Home";
+import { NavBar } from "./components/NavBar";
+import { Footer } from "./components/Footer";
+import { HomePage } from "./pages/HomePage";
+import { LoginPage } from "./pages/LoginPage";
+import { SignupPage } from "./pages/SignupPage";
+import { UserPage } from "./pages/UserPage";
+import { ProductsPage } from "./pages/ProductsPage";
+import { ProductDetailPage } from "./pages/ProductDetailPage";
+import { CartPage } from "./pages/CartPage";
+import { FormPage } from "./pages/FormPage";
+import "./App.css";
 
-function App() {
+export function App() {
   return (
     <>
       <CartProvider>
         <Router>
           <NavBar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<ItemListContainer />} />
-            <Route path="/item/:id" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/cart/form" element={<Form />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/user/:id" element={<User />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/user/:id" element={<UserPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/cart/form" element={<FormPage />} />
           </Routes>
           <Footer />
         </Router>
@@ -34,5 +34,3 @@ function App() {
     </>
   );
 }
-
-export default App;

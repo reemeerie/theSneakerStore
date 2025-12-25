@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -7,23 +6,27 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [itemsCarrito, setItemsCarrito] = useState([]);
   const [total, setTotal] = useState(0);
+  const [user, setUser] = useState("");
 
-  const addItem = (item, cantidad) => {
+  const addItem = (item, cantidadNueva) => {
     if (isInCart(item.id)) {
-      let aux = itemsCarrito;
-      let itemIndex = aux.findIndex((element) => element.id === item.id);
-      let antes = aux[itemIndex].cantidad;
-      let cantAgregar = antes + cantidad;
+      /* si lo tengo, trato de agregar la cantidad nueva */
+      let itemIndex = itemsCarrito.findIndex((element) => element.id === item.id);
+      let cantidadActual = itemsCarrito[itemIndex].cantidad;
+      let cantAgregar = cantidadActual + cantidadNueva;
+      /* si hay en stock, la agrego y si no nada */
       if (cantAgregar <= item.stock) {
-        aux[itemIndex].cantidad += cantidad;
-        setItemsCarrito([...aux]);
+        itemsCarrito[itemIndex].cantidad += cantidadNueva;
+        setItemsCarrito([...itemsCarrito]);
       }
     } else {
-      setItemsCarrito([...itemsCarrito, { ...item, cantidad }]);
+      /* si no lo tengo, copio lo que tengo y lo agrego */
+      setItemsCarrito([...itemsCarrito, { ...item, cantidad: cantidadNueva }]);
     }
   };
 
   const removeItem = (ItemId) => {
+    /* copia en un array nuevo todos los items que tengan un id distinto */
     setItemsCarrito(itemsCarrito.filter((element) => element.id !== ItemId));
   };
 
@@ -31,21 +34,8 @@ export const CartProvider = ({ children }) => {
     return itemsCarrito.find((item) => item.id === ItemId);
   };
 
-  const addTotal = (acum) => {
-    setTotal(acum);
-  };
-
   const clearCarro = () => {
     setItemsCarrito([]);
-  };
-
-  const fromLocalStorage = () => {
-    const localCarrito = window.localStorage.getItem("cart");
-    if (localCarrito) {
-      const newCarro = JSON.parse(localCarrito);
-      setItemsCarrito(newCarro);
-      window.localStorage.removeItem("cart");
-    }
   };
 
   return (
@@ -53,12 +43,13 @@ export const CartProvider = ({ children }) => {
       value={{
         itemsCarrito,
         total,
+        user,
         addItem,
         isInCart,
         removeItem,
-        addTotal,
+        setTotal,
         clearCarro,
-        fromLocalStorage,
+        setUser
       }}
     >
       {children}

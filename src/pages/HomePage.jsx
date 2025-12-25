@@ -1,10 +1,10 @@
-import "../style/Home.css";
 import { Link } from "react-router-dom";
+import "../style/Home.css";
 
-const Home = () => {
+export const HomePage = () => {
   return (
-    <div className="homeContainer">
-      <div className="box1">
+    <section className="homeContainer">
+      <article className="box1">
         <div className="imgContainer">
           <img src="/img/imggg.webp" alt="..." />
         </div>
@@ -18,8 +18,8 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </div>
-      <div className="box2">
+      </article>
+      <article className="box2">
         <div className="check">
           <div className="text">
             <p className="parrafo">
@@ -37,9 +37,7 @@ const Home = () => {
         <div className="airmax">
           <img src="/img/airmaxHome.jpg" alt="arimaxHome" className="imgbox2" />
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 };
-
-export default Home;
