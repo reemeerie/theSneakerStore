@@ -30,6 +30,8 @@ _⚠️ Nota: Si la sección de productos no carga o presenta errores, es posibl
 Este proyecto representó un primer acercamiento práctico a:
 
 - El uso de hooks en React
+- Conditional rendering
+- Reactividad a cambios
 - La gestión de estado global mediante Context API
 - La integración de librerías de estilos
 - El ruteo de la aplicación con react-router-dom
